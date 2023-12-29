@@ -122,18 +122,27 @@
     <script src="js/js01.js"></script>
     <script>
         $(document).ready(function() { 
-            // Select the modal OK button by class
-            var okButton = $('.modal-footer .btn-primary');
-            // Add event listener for the 'click' event
-            okButton.on('click', function() {
-                // Hide the modal
-                $('#myModal').modal('hide');
-                
-                // Create and display the birthday cake
-                var birthdayCake = '<img src="img/birthday_cake.jpg" style="max-width: 100%; height: auto;">';
-                $('.container').append(birthdayCake); // Append the cake to a specific container, adjust selector as needed
-            });
+    // Select the modal OK button by class
+    var okButton = $('.modal-footer .btn-primary');
+    
+    // Add event listener for the 'click' event
+    okButton.on('click', function() {
+        // Hide the modal
+        $('#myModal').modal('hide');
+
+        // Create and display the birthday cake
+        var birthdayCake = '<img id="birthdayCake" src="img/birthday_cake.jpg" style="max-width: 100%; height: auto; cursor: pointer;">';
+        $('.container').append(birthdayCake); // Append the cake to a specific container, adjust selector as needed
+
+        // Add event listener for the birthday cake click
+        $('#birthdayCake').on('click', function() {
+            // Create and display the candle
+            var candle = '<img src="img/candle.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">';
+            $('.container').append(candle); // Append the candle to the container
         });
+    });
+});
+
         </script>
 
 </body>
